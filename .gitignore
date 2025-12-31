@@ -22,6 +22,7 @@
 .vscode/
 .idea/
 *.sln
+*.slnx
 *.csproj
 *.user
 *.userprefs
@@ -54,6 +55,7 @@ Thumbs.db
 # =========================
 sysinfo.txt
 crashlytics-build.properties
+mono_crash*
 
 # =========================
 # Build outputs
