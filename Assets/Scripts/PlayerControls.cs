@@ -8,8 +8,18 @@ public class PlayerControls : MonoBehaviour {
     private Camera mainCamera;
     private Vector3 touchPlayerOffset;
 
+    private float maxLeft;
+    private float maxRight;
+    private float maxUp;
+    private float maxDown;
+
     void Start() {
         mainCamera = Camera.main;
+
+        maxLeft = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0f)).x;
+        maxRight = mainCamera.ViewportToWorldPoint(new Vector2(1f, 0f)).x;
+        maxUp = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.85f)).y;
+        maxDown = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.05f)).y;
     }
 
     void Update() {
@@ -33,6 +43,12 @@ public class PlayerControls : MonoBehaviour {
                 transform.position = new Vector3(newPositionX, newPositionY, 0);
             }
 
+            // Restrict Movement inside World
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, maxLeft, maxRight),
+                Mathf.Clamp(transform.position.y, maxDown, maxUp),
+                0
+            );
         }
     }
 
