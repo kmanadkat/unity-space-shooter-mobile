@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
@@ -15,11 +16,7 @@ public class PlayerControls : MonoBehaviour {
 
     void Start() {
         mainCamera = Camera.main;
-
-        maxLeft = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0f)).x;
-        maxRight = mainCamera.ViewportToWorldPoint(new Vector2(1f, 0f)).x;
-        maxUp = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.85f)).y;
-        maxDown = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.05f)).y;
+        StartCoroutine(SetBoundaries());
     }
 
     void Update() {
@@ -58,5 +55,15 @@ public class PlayerControls : MonoBehaviour {
 
     private void OnDisable() {
         EnhancedTouchSupport.Disable();
+    }
+
+    private IEnumerator SetBoundaries() {
+        // do something or nothing
+        yield return new WaitForSeconds(0.4f);
+
+        maxLeft = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0f)).x;
+        maxRight = mainCamera.ViewportToWorldPoint(new Vector2(1f, 0f)).x;
+        maxUp = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.85f)).y;
+        maxDown = mainCamera.ViewportToWorldPoint(new Vector2(0f, 0.05f)).y;
     }
 }
