@@ -66,6 +66,7 @@ mono_crash*
 *.app
 *.exe
 *.unitypackage
+.utmp
 
 # =========================
 # StreamingAssets runtime

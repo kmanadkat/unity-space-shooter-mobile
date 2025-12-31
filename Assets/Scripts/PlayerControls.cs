@@ -21,23 +21,26 @@ public class PlayerControls : MonoBehaviour {
 
     void Update() {
         if (Touch.activeTouches.Count != 0) {
-            // Get Touch Position
-            Touch myTouch = Touch.activeTouches[0];
-            Vector3 touchPosition = myTouch.screenPosition;
 
-            // Screen to World Position
-            touchPosition = mainCamera.ScreenToWorldPoint(touchPosition);
+            if (Touch.activeTouches[0].finger.index == 0) {
+                // Get Touch Position
+                Touch myTouch = Touch.activeTouches[0];
+                Vector3 touchPosition = myTouch.screenPosition;
 
-            // Calculate Distance between touch and player when touch just began
-            if (Touch.activeTouches[0].phase.Equals(TouchPhase.Began)) {
-                touchPlayerOffset = touchPosition - transform.position;
-            }
+                // Screen to World Position
+                touchPosition = mainCamera.ScreenToWorldPoint(touchPosition);
 
-            // Update Player Position
-            if (Touch.activeTouches[0].phase.Equals(TouchPhase.Moved)) {
-                float newPositionX = touchPosition.x - touchPlayerOffset.x;
-                float newPositionY = touchPosition.y - touchPlayerOffset.y;
-                transform.position = new Vector3(newPositionX, newPositionY, 0);
+                // Calculate Distance between touch and player when touch just began
+                if (Touch.activeTouches[0].phase.Equals(TouchPhase.Began)) {
+                    touchPlayerOffset = touchPosition - transform.position;
+                }
+
+                // Update Player Position
+                if (Touch.activeTouches[0].phase.Equals(TouchPhase.Moved)) {
+                    float newPositionX = touchPosition.x - touchPlayerOffset.x;
+                    float newPositionY = touchPosition.y - touchPlayerOffset.y;
+                    transform.position = new Vector3(newPositionX, newPositionY, 0);
+                }
             }
 
             // Restrict Movement inside World
