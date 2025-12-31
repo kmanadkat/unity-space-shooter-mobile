@@ -110,6 +110,7 @@ MonoBehaviour:
   rigidBody: {fileID: 2062105432039604969}
   minSpeed: 8
   maxSpeed: 15
+  zRotateSpeed: 100
 --- !u!50 &2062105432039604969
 Rigidbody2D:
   serializedVersion: 5
