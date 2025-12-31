@@ -1,10 +1,12 @@
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
     [SerializeField] protected float health;
+    [SerializeField] protected Rigidbody2D rigidBody;
 
-    void Start() { }
+    void Start() {
+
+    }
 
     void Update() { }
 

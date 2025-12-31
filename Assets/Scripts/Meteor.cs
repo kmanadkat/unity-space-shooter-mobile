@@ -1,7 +1,15 @@
 using UnityEngine;
 
 public class Meteor : Enemy {
-    void Start() { }
+
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
+    private float speed;
+
+    void Start() {
+        speed = Random.Range(minSpeed, maxSpeed);
+        rigidBody.linearVelocity = Vector2.down * speed;
+    }
 
     void Update() { }
 
@@ -13,5 +21,11 @@ public class Meteor : Enemy {
     public override void DeathSequence() {
         // TODO
         // base.DeathSequence();
+    }
+
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.CompareTag("Player")) {
+            Destroy(otherCollider.gameObject);
+        }
     }
 }
