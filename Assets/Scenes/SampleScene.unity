@@ -1011,6 +1011,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1057338263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1057338265}
+  - component: {fileID: 1057338264}
+  m_Layer: 0
+  m_Name: MeteorSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1057338264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057338263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b78fab769da458585a7310393f3c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeteorSpawner
+  meteors:
+  - {fileID: 3827796623370658492, guid: 44e0df812d3204e33804f9af829e076e, type: 3}
+  - {fileID: 4086649553842436753, guid: 3d01ad05f676a4bc291822decf161b1d, type: 3}
+  - {fileID: 3134264877964257780, guid: 8e26c77e05a6e418f823ba4530fcaf93, type: 3}
+  spawnTime: 2
+--- !u!4 &1057338265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057338263}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198563019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,11 +1161,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3108186910558928877, guid: 44e0df812d3204e33804f9af829e076e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17
+      value: 2.34
       objectReference: {fileID: 0}
     - target: {fileID: 3108186910558928877, guid: 44e0df812d3204e33804f9af829e076e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.8635178
+      value: 6.88
       objectReference: {fileID: 0}
     - target: {fileID: 3108186910558928877, guid: 44e0df812d3204e33804f9af829e076e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1707,3 +1756,4 @@ SceneRoots:
   - {fileID: 2084709247}
   - {fileID: 1004031773}
   - {fileID: 1242947083}
+  - {fileID: 1057338265}

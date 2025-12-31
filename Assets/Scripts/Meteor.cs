@@ -28,4 +28,8 @@ public class Meteor : Enemy {
             Destroy(otherCollider.gameObject);
         }
     }
+
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
 }
