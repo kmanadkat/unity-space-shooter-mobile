@@ -1,0 +1,7 @@
+# top-level configuration
+root = true
+
+[*]
+# .editorconfig files are powerful for maintaining consistent style
+# for C# formatting options, see the Microsoft Docs link below
+csharp_new_line_before_open_brace = none:all

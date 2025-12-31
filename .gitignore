@@ -1,0 +1,105 @@
+# =========================
+# Unity generated folders
+# =========================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Addressables & Unity caches
+[Aa]ssets/AddressableAssetsData/*/*.bin*
+[Aa]ssets/AddressableAssetsData/*/*.json
+[Aa]ssets/AddressableAssetsData/*/*.hash
+
+# =========================
+# Rider / Visual Studio
+# =========================
+.vs/
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.suo
+*.tmp
+
+# =========================
+# Unity cache & meta
+# =========================
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =========================
+# Crash reports
+# =========================
+sysinfo.txt
+crashlytics-build.properties
+
+# =========================
+# Build outputs
+# =========================
+*.apk
+*.aab
+*.ipa
+*.app
+*.exe
+*.unitypackage
+
+# =========================
+# StreamingAssets runtime
+# =========================
+[Aa]ssets/StreamingAssets/**/*.log
+
+# =========================
+# User settings
+# =========================
+UserSettings/
+
+# =========================
+# Android / Gradle
+# =========================
+.gradle/
+local.properties
+*.keystore
+*.jks
+
+# =========================
+# iOS
+# =========================
+*.xcworkspace
+*.xcodeproj
+DerivedData/
+
+# =========================
+# Unity Cloud & Services
+# =========================
+UnityLockfile
+UnityProjectSettings.json
+
+# =========================
+# Memory & Profiler
+# =========================
+*.raw
+*.mem
+*.snap
+*.data
