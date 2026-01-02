@@ -22,12 +22,13 @@ public class PlayerStats : MonoBehaviour {
         currentHealth -= damage;
         healthFill.fillAmount = currentHealth / maxHealth;
 
-        // Play Animation
+        // Play Damage Animation
         if (canPlayAnim) {
             anim.SetTrigger("Damage");
             StartCoroutine(AntiSpamAnimation());
         }
         if (currentHealth <= 0) {
+            // Play Destroy Animation
             Instantiate(explosionPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }

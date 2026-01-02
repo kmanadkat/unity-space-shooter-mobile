@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
     // Damage can be caused by Enemy to Player
     [SerializeField] protected float damage;
     [SerializeField] protected GameObject explosionPrefab;
+
+    [SerializeField] private Animator anim;
     void Start() {
 
     }
@@ -24,7 +26,11 @@ public class Enemy : MonoBehaviour {
     }
 
     public virtual void HurtSequence() {
-        // TODO: Damage Animation
+        // Check if Damage Animation is already running
+        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dmg")) {
+            return;
+        }
+        anim.SetTrigger("Damage");
     }
 
     public virtual void DeathSequence() {
