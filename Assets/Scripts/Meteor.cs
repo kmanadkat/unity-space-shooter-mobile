@@ -30,7 +30,11 @@ public class Meteor : Enemy {
 
     private void OnTriggerEnter2D(Collider2D otherCollider) {
         if (otherCollider.CompareTag("Player")) {
-            Destroy(otherCollider.gameObject);
+            // Cause damage to player on Collide
+            PlayerStats player = otherCollider.GetComponent<PlayerStats>();
+            player.PlayerTakeDamage(damage);
+            // Destroy Meteor
+            Destroy(gameObject);
         }
     }
 

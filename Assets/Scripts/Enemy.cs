@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected float health;
     [SerializeField] protected Rigidbody2D rigidBody;
 
+    // Damage can be caused by Enemy to Player
+    [SerializeField] protected float damage;
     void Start() {
 
     }

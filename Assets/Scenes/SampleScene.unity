@@ -796,6 +796,7 @@ GameObject:
   - component: {fileID: 1004031772}
   - component: {fileID: 1004031774}
   - component: {fileID: 1004031777}
+  - component: {fileID: 1004031778}
   - component: {fileID: 1004031776}
   - component: {fileID: 1004031775}
   m_Layer: 6
@@ -1028,6 +1029,19 @@ MonoBehaviour:
   laserBullet: {fileID: 852939058232845720, guid: d20ccc67121a14e089aed8b52734af14, type: 3}
   basicShootPoint: {fileID: 1233874586}
   shootingInterval: 0.3
+--- !u!114 &1004031778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004031771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f3c8d75bacd406489388de9b063a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 3
 --- !u!1 &1057338263
 GameObject:
   m_ObjectHideFlags: 0
