@@ -18,12 +18,11 @@ public class Meteor : Enemy {
     }
 
     public override void HurtSequence() {
-        // Nothing - Placeholder
+        base.HurtSequence();
     }
 
     public override void DeathSequence() {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
+        base.DeathSequence();
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider) {

@@ -24,8 +24,7 @@ public class GreenFly : Enemy {
     }
 
     public override void DeathSequence() {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
+        base.DeathSequence();
     }
 
     void OnBecameInvisible() {

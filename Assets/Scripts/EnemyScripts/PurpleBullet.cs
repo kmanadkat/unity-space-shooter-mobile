@@ -11,7 +11,6 @@ public class PurpleBullet : MonoBehaviour {
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Collided");
         PlayerStats player = collision.GetComponent<PlayerStats>();
         player.PlayerTakeDamage(damage);
         Destroy(gameObject);

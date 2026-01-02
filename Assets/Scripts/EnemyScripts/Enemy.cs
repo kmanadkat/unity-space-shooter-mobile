@@ -9,11 +9,6 @@ public class Enemy : MonoBehaviour {
     [SerializeField] protected GameObject explosionPrefab;
 
     [SerializeField] private Animator anim;
-    void Start() {
-
-    }
-
-    void Update() { }
 
     public void TakeDamage(float damage) {
         health -= damage;
@@ -26,14 +21,17 @@ public class Enemy : MonoBehaviour {
     }
 
     public virtual void HurtSequence() {
-        // Check if Damage Animation is already running
-        if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dmg")) {
-            return;
+        if (anim != null) {
+            // Check if Damage Animation is already running
+            if (anim.GetCurrentAnimatorStateInfo(0).IsTag("Dmg")) {
+                return;
+            }
+            anim.SetTrigger("Damage");
         }
-        anim.SetTrigger("Damage");
     }
 
     public virtual void DeathSequence() {
-        // TODO: Destroy Animation
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
