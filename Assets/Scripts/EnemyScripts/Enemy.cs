@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
     // Damage can be caused by Enemy to Player
     [SerializeField] protected float damage;
+    [SerializeField] protected GameObject explosionPrefab;
     void Start() {
 
     }

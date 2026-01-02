@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour {
 
     // UI Health Bar Fill
     [SerializeField] private Image healthFill;
+    [SerializeField] private GameObject explosionPrefab;
 
     void Start() {
         currentHealth = maxHealth;
@@ -17,6 +18,7 @@ public class PlayerStats : MonoBehaviour {
         currentHealth -= damage;
         healthFill.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0) {
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
