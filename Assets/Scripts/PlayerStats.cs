@@ -31,6 +31,10 @@ public class PlayerStats : MonoBehaviour {
             // Play Destroy Animation
             Instantiate(explosionPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
+
+            // Game Over
+            EndGameManager.endManager.gameOver = true;
+            EndGameManager.endManager.StartResolveSequence();
         }
     }
 
