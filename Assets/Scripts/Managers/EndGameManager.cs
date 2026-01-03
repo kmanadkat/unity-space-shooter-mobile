@@ -8,7 +8,13 @@ public class EndGameManager : MonoBehaviour {
     private PanelController panelController;
 
     void Awake() {
-        endManager = this;
+        if (endManager == null) {
+            endManager = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
     }
 
     void Start() {
