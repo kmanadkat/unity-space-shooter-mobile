@@ -6,6 +6,7 @@ public class PurpleBullet : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
 
     void Start() {
+        Debug.Log("PurpleBullet Start");
         rb.linearVelocity = -transform.up * speed;
     }
 
@@ -17,6 +18,7 @@ public class PurpleBullet : MonoBehaviour {
     }
 
     void OnBecameInvisible() {
+        Debug.Log("PurpleBullet OnBecameInvisible");
         Destroy(gameObject);
     }
 }

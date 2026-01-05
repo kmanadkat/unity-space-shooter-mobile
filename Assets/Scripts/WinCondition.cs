@@ -12,6 +12,10 @@ public class WinCondition : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (EndGameManager.endManager.gameOver) {
+            return;
+        }
+
         timer += Time.deltaTime;
 
         // Deactivate Spawners after win time
