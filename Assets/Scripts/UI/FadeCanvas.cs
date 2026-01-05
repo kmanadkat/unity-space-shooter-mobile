@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Image = UnityEngine.UI.Image;
 
 public class FadeCanvas : MonoBehaviour {
     public static FadeCanvas fader;
 
     [SerializeField] private CanvasGroup canvasGroup;
+
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private Image loadingBar;
     [SerializeField] private float changeValue;
     [SerializeField] private float waitTime;
     [SerializeField] private bool fadeStarted = false;
@@ -25,15 +29,19 @@ public class FadeCanvas : MonoBehaviour {
     }
 
     IEnumerator FadeIn() {
+        loadingScreen.SetActive(false);
         fadeStarted = false;
         while (canvasGroup.alpha > 0) {
+            if (fadeStarted) {
+                yield break;
+            }
             canvasGroup.alpha -= changeValue;
             yield return new WaitForSeconds(waitTime);
         }
     }
 
     IEnumerator FadeOutString(string levelName) {
-        if (fadeStarted) {
+        if (fadeStarted || canvasGroup.alpha != 0) {
             yield break;
         }
 
@@ -44,8 +52,20 @@ public class FadeCanvas : MonoBehaviour {
         }
 
         // Load Level
-        SceneManager.LoadScene(levelName);
-        yield return new WaitForSeconds(0.1f);
+        // SceneManager.LoadScene(levelName);
+        // With Progress Bar START
+        AsyncOperation ao = SceneManager.LoadSceneAsync(levelName);
+        ao.allowSceneActivation = false;
+        loadingScreen.SetActive(true);
+        loadingBar.fillAmount = 0;
+        while (!ao.isDone) {
+            loadingBar.fillAmount = ao.progress / 0.9f;
+            if (ao.progress == 0.9f) {
+                ao.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+        // With Progress Bar END
         // Fade In - Show New Level
         StartCoroutine(FadeIn());
     }
@@ -62,8 +82,20 @@ public class FadeCanvas : MonoBehaviour {
         }
 
         // Load Level
-        SceneManager.LoadScene(levelIndex);
-        yield return new WaitForSeconds(0.1f);
+        // SceneManager.LoadScene(levelIndex);
+        // With Progress Bar START
+        AsyncOperation ao = SceneManager.LoadSceneAsync(levelIndex);
+        ao.allowSceneActivation = false;
+        loadingScreen.SetActive(true);
+        loadingBar.fillAmount = 0;
+        while (!ao.isDone) {
+            loadingBar.fillAmount = ao.progress / 0.9f;
+            if (ao.progress == 0.9f) {
+                ao.allowSceneActivation = true;
+            }
+            yield return null;
+        }
+        // With Progress Bar END
         // Fade In - Show New Level
         StartCoroutine(FadeIn());
     }
